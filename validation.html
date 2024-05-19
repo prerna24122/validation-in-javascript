@@ -1,0 +1,108 @@
+
+
+<!--Registration form using validation-->
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>validation</title>
+        <style>
+          .div{
+            background-color: lightcyan;
+            height: 400px;
+            width: 309px;
+            padding-top: 100px;
+            
+          }
+        </style>
+    </head>
+    <body>
+        <center>
+        <h1>Registration form</h1>
+        <input  id="name"   type="text" placeholder="enter your name">
+        <br>
+        <br>
+        <input  id="father"  type="text"  placeholder="enter father name">
+        <br>
+        <br>
+        <input   id="phone"  type="number" placeholder="enter phone number">
+        <br>
+        <br>
+        <input id="email"  type="email" placeholder="enter the email id">
+        <br>
+        <br>
+       <input type="radio" name="gender" value="female"   >female
+       <input type="radio" name="gender" value="male" >male
+        <br>
+        <br>
+        <button onclick="validate()" >submitt</button>
+        <br>
+        </center>
+        <center>
+        <div   id="div"  class="div">
+            <h1>Registration form</h1>
+            <input  id="name"   type="text" placeholder="enter your name">
+            <br>
+            <br>
+            <input  id="father"  type="text"  placeholder="enter father name">
+            <br>
+            <br>
+            <input   id="phone"  type="number" placeholder="enter phone number">
+            <br>
+            <br>
+            <input id="email"  type="email" placeholder="enter the email id">
+            <br>
+            <br>
+           <input type="radio" name="gender" value="female"   >female
+           <input type="radio" name="gender" value="male" >male
+            <br>
+            <br>
+        </div>
+        </center>
+        <script>
+            function validate(){
+                var nm=document.getElementById("name").value;
+                var pattern=/^[a-zA-Z ]*$/; //only for alphabet
+                var f=document.getElementById("father").value;
+                var p=document.getElementById("phone").value;
+                var pattern1=/^\d{10}$/; //phone number
+                var e=document.getElementById("email").value;
+                var pattern2=/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/; //only for valid mail
+                var radio1=document.querySelector('input[name="gender"]:checked') !== null;
+               var div = document.getElementById("div").innerHTML=e;
+
+
+                if(nm==""){
+                    alert("name can not be empty");
+                }
+                else if(!pattern.test(nm)){
+                    alert("invalid name");
+                }
+                else if(f==""){
+                    alert("blank can not be possible");
+                }
+                else if(!pattern.test(f)){
+                    alert("invalid father name");
+                }
+                else if(p==""){
+                    alert("phone number can not be blank");
+                }
+                else if(!pattern1.test(p)){
+                    alert("invalid number");
+
+                }
+                else if(e==""){
+                    alert("email can not be blank");
+                }
+                else if(!pattern2.test(e)){
+                    alert("invalid email");
+                 }
+                 else if(!radio1){
+                    alert("select one of the option");
+                 }
+        }
+
+        </script>
+    </body>
+</html>
